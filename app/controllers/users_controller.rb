@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to '/users/:id'
+      flash[:success] = "Welcome to Newsfeed!"
+      redirect_to @user
     else
       render 'new'
     end
