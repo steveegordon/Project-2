@@ -28,6 +28,14 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+# carrierwave uploads images
+gem 'carrierwave', '0.10.0'
+#mini_magick allows us to edit image uploads
+gem 'mini_magick', '3.8.0'
+#fog grants access to amazon aws
+gem 'fog', '1.28.0'
+#figaro creates secrets file and fixes .gitignore file
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
