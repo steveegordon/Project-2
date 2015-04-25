@@ -7,13 +7,13 @@ class User < ActiveRecord::Base
       format: { with: VALID_EMAIL_REGEX }
   has_secure_password
   validates :password, length: {minimum: 6}
-  mount_uploader :picture, PictureUploader
-  validate :picture_size
+  # mount_uploader :picture, PictureUploader
+  # validate :picture_size
 
-  private
-  def picture_size
-    if picture_size > 4.megabytes
-      errors.add(:picture, "should be less than 4MB")
-    end
-  end
+  # private
+  # def picture_size
+  #   if picture_size > 4.megabytes
+  #     errors.add(:picture, "should be less than 4MB")
+  #   end
+  # end
 end
