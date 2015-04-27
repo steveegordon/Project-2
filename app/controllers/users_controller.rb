@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     before_action :correct_user,   only: [:edit, :update, :destroy]
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
   def index
     @users = User.paginate(page: params[:page])
@@ -46,12 +47,6 @@ class UsersController < ApplicationController
                                   :password_confirmation, :picture)
     end
 
-        def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
 
         def correct_user
       @user = User.find(params[:id])
