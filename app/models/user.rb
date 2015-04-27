@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
       format: { with: VALID_EMAIL_REGEX }
   has_secure_password
   validates :password, length: {minimum: 6}, allow_blank: true
+
+  def feed
+    posts
+  end
   # mount_uploader :picture, PictureUploader
   # validate :picture_size
 
