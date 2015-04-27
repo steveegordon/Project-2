@@ -15,10 +15,10 @@ class User < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   # validate :picture_size
 
-  # private
-  # def picture_size
-  #   if picture_size > 4.megabytes
-  #     errors.add(:picture, "should be less than 4MB")
-  #   end
-  # end
+  private
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+      end
+    end
 end
