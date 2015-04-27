@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   def feed
     posts
   end
-  # mount_uploader :picture, PictureUploader
+  mount_uploader :picture, PictureUploader
   # validate :picture_size
 
   # private

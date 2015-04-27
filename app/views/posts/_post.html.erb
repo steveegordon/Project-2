@@ -1,4 +1,5 @@
 <li id="post-<%= post.id %>">
+  <%= image_tag post.user.picture.url %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content"><%= post.content %></span>
   <span class="timestamp">
