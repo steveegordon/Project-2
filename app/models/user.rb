@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
    presence: true, length: {maximum: 52}, 
       format: { with: VALID_EMAIL_REGEX }
   has_secure_password
-  validates :password, length: {minimum: 6}
+  validates :password, length: {minimum: 6}, allow_blank: true
   # mount_uploader :picture, PictureUploader
   # validate :picture_size
 
