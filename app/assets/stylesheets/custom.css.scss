@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 @mixin debug_box {  
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -18,6 +19,7 @@ $robred: #CD5C5C;
   }
 
 body {
+  font-family: 'Nixie One', cursive;
   padding-top: 60px;
 }
 
