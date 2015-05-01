@@ -1,20 +1,31 @@
+<!-- application layout for all pages -->
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= full_title(yield (:title)) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/shiv' %>
+  <head>
+  <!-- uses full title helper to populate proper title -->
+    <title><%= full_title(yield (:title)) %>
+    </title>
+    <!-- relevant stylesheets -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!-- shiv to fix page for crappy IE -->
+    <%= render 'layouts/shiv' %>
   </head>
   <body>
+  <!-- renders header partial in body -->
     <%= render 'layouts/header' %>
     <div class="container">
+    <!-- location of flash when there is an error or success -->
       <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="alert alert-<%= message_type %>"><%= message %>
+        </div>
       <% end %>
+      <!-- inserts page specific view -->
       <%= yield %>
+      <!-- renders footer -->
       <%= render 'layouts/footer' %>
+      <!-- gives debug information when in development mode otherwise not in view -->
       <%= debug(params) if Rails.env.development? %>
     </div>
   </body>

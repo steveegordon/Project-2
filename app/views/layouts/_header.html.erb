@@ -1,10 +1,26 @@
+<!-- header partial sourced in all pages -->
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "NEWSFEED", root_path, id: "logo" %>
     <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+        <!-- only shows and allows logged in users to search -->
+          <% if logged_in? %>
+            <%= form_tag('/users', method: 'get') do %>
+              Search by
+              <!-- select tag not needed but kept for improved search functionality later -->
+              <%= select_tag "search", options_for_select(["name"]), class: 'search' %>
+              Search: <%= text_field_tag :query , nil, class: 'search' %>
+              <%= submit_tag "Search", class: 'search' %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Help",   help_path %></li>
+        <!-- only allows logged in users to access account settings and view other users as well as log out ability -->
         <% if logged_in? %>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
@@ -20,6 +36,7 @@
             </li>
           </ul>
           </li>
+          <!-- simply shows log in link if not logged in -->
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>

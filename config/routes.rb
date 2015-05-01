@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  # created routes for static pages and sessions
 
   get 'sessions/new'
 
@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
-
+# automatically create users routes
   resources :users
-
+# automatically create posts routes but limited to create and destroy
   resources :posts, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

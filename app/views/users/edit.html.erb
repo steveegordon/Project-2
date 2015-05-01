@@ -1,11 +1,13 @@
+<!-- provides title for helper -->
 <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
+    <!-- shows errors when they occur based upon objects -->
       <%= render 'shared/error_messages', object: f.object %>
-
+    <!-- edit form -->
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
@@ -23,6 +25,6 @@
 
   </div>
 </div>
-
+<!-- requires confirm for delete -->
   <%= link_to "delete my profile", @user, method: :delete,
                                   data: { confirm: "You sure?" } %>

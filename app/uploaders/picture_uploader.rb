@@ -1,8 +1,9 @@
 # encoding: utf-8
 
 class PictureUploader < CarrierWave::Uploader::Base
+  # implement carrierwave uploader with minimagick for resizing
   include CarrierWave::MiniMagick
-
+# sets resize before save to 100, 100
   process resize_to_limit: [100,100]
 
   # Include RMagick or MiniMagick support:
@@ -11,6 +12,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # storage :fog
+  # sets storage to s3 rather than local
   storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -18,7 +20,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-
+# restrict all other filetypes other than white list for uploads
    def extension_white_list
     %w(jpg jpeg gif png)
   end

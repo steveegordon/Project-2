@@ -2,13 +2,13 @@
 @import "bootstrap";
 @import url(//fonts.googleapis.com/css?family=Nixie+One);
 
-
+//created a mixin which is a styling variable which can be reused
 @mixin debug_box {  
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
   }
-
+//created a sass variable to easily reuse font color
 $robred: #CD5C5C;
 
 .debug_dump {
@@ -148,12 +148,8 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
 
-.gravatar_edit {
+.avatar_edit {
   margin-top: 15px;
 }
 
@@ -222,7 +218,7 @@ input {
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
+  .avatar {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
@@ -241,4 +237,9 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.search {
+  width: 100px;
+  
 }

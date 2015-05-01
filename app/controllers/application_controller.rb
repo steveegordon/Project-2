@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 
   private
-
+# created a method which checks for login and prevents users from accessing pages when not logged in
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."

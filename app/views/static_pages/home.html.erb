@@ -2,6 +2,7 @@
 <head>
  
 </head>
+<!-- if user is logged in shows user info, feed, and allows posting -->
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
@@ -24,6 +25,7 @@
   </p>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+<!-- ridiculous image and link -->
 <%= link_to image_tag("rails.png", alt: "Rails logo"),
             'https://www.youtube.com/watch?v=SGqUwr9j8Zc' %>
 <% end %>

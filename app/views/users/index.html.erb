@@ -1,9 +1,11 @@
+<!-- provide title for helper -->
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
 <%= will_paginate %>
 
 <ul class="users">
+<!-- shows all users and their picture if one exists with link to them -->
   <% @users.each do |user| %>
     <li>
       <%= image_tag user.picture.url if user.picture? %>

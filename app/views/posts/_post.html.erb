@@ -1,5 +1,8 @@
+<!-- post partial -->
 <li id="post-<%= post.id %>">
+<!-- adds user picture string and converts to url -->
   <%= image_tag post.user.picture.url %>
+  <!-- link to specific user and relevent data to post -->
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content"><%= post.content %></span>
   <span class="timestamp">

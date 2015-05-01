@@ -1,15 +1,17 @@
-
+<!-- porvieds title for helper -->
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= image_tag @user.picture.url if @user.picture? %>
+      <!-- inserts user image if one exists as well as name -->
+        <%= image_tag @user.picture.url, class: "avatar" if @user.picture? %>
         <%= @user.name %>
       </h1>
     </section>
   </aside>
     <div class="col-md-8">
+    <!-- gives a post count and shows posts if any exist -->
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">
